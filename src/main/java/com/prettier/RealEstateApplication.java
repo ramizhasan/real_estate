@@ -12,11 +12,9 @@ public class RealEstateApplication {
 //test Ahmet
 }
 
-//  Ramiz was here
 
+//  Ramiz was here
 //this is second task by Ramiz
 
-
-
-
 /// Test Fatih !!!!
+
