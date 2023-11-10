@@ -9,13 +9,12 @@ public class RealEstateApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RealEstateApplication.class, args);
 	}
-
+//test Ahmet
 }
 
-//  Ramiz was here
 
+//  Ramiz was here
 //this is second task by Ramiz
 
-
 /// Test Fatih !!!!
-//Fatih 2
+
