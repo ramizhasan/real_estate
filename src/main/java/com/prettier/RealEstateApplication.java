@@ -18,12 +18,12 @@ public class RealEstateApplication {
 
 /// Test Fatih !!!!
 
-
-
-
-
+//akin kodları
+//yeni branch
+//27.satır
 
 //akin kodları
 
 //Fatih 2
+
 
