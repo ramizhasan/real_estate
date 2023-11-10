@@ -29,3 +29,5 @@ public class RealEstateApplication {
 //akın29
 //akın30
 //akın31
+// Mert 32
+
