@@ -23,3 +23,5 @@ public class RealEstateApplication {
 
 
 //akin kodları
+//yeni branch
+//27.satır
