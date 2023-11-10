@@ -25,5 +25,5 @@ public class RealEstateApplication {
 //akin kodları
 
 //Fatih 2
-
+//akın 28
 
