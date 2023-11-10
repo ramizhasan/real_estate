@@ -17,6 +17,6 @@ public class RealEstateApplication {
 //this is second task by Ramiz
 
 
-=======
+
 
 /// Test Fatih !!!!
