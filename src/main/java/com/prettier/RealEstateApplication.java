@@ -26,4 +26,6 @@ public class RealEstateApplication {
 
 //Fatih 2
 //akın 28
-
+//akın29
+//akın30
+//akın31
