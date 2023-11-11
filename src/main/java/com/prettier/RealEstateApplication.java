@@ -31,4 +31,4 @@ public class RealEstateApplication {
 //akın31
 // Mert 32
 
-//ramiz 34 1
+//ramiz 34 2
