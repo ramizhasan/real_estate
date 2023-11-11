@@ -33,5 +33,8 @@ public class RealEstateApplication {
 // Mert 32
 //ramiz 34 2
 // Ahmet 35 1
+//akin36 1
+
+
 
 
