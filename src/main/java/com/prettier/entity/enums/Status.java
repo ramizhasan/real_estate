@@ -1,6 +1,5 @@
 package com.prettier.entity.enums;
 
-import jakarta.persistence.Entity;
 
 public enum Status {
     PENDING(0, "The advert was created and waiting for administrative approval"),

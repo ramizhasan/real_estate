@@ -6,14 +6,12 @@ import com.prettier.entity.enums.RoleType;
 import com.prettier.repository.RoleRepository;
 import com.prettier.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import jdk.jfr.Registered;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import java.time.LocalDateTime;
 import java.util.*;
 
 @SpringBootApplication
@@ -30,7 +28,7 @@ public class RealEstateApplication implements CommandLineRunner {
 
     @Override
 
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
 
 //creating Roles ----------------------------------------------------------------
@@ -99,7 +97,7 @@ public class RealEstateApplication implements CommandLineRunner {
 // Method to get LAZY  userSet from RoleRepository and Returns iterator.
     @Transactional
     public Iterator<User> findUserSetById(Long id){
-        Role role = roleRepository.findById(2L).orElseThrow();
+        Role role = roleRepository.findById(id).orElseThrow();
         Set<User> userSet = role.getUserSet();
         return userSet.iterator();
     }

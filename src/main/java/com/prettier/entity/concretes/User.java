@@ -1,6 +1,6 @@
 package com.prettier.entity.concretes;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Size;
@@ -10,7 +10,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -46,7 +45,7 @@ public class User {
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
-    @Column(name = "reset_password_code", nullable = true)
+    @Column(name = "reset_password_code")
     private String resetPasswordCode; //hash
 
     private boolean built_in;
