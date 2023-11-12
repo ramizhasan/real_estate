@@ -1,24 +1,27 @@
 package com.prettier.entity.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditingEntityListener.class)//Auditing: You've included auditing information using @CreatedDate and @EntityListeners(AuditingEntityListener.class). This is useful for tracking when entities are created and updated.
 @Table(name = "users")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Getter
+@Setter
+@ToString
 public class User {
 
     @Id
@@ -53,7 +56,18 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createAt;
 
+    @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "update_at")
     private LocalDateTime updateAt;
+
+    @ManyToMany//TODO: Bu baglanti boylemi kurulmali tekrar dusun,
+    @JoinTable(
+            name = "user_roles"
+            ,joinColumns = @JoinColumn(name = "user_id")
+            ,inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    @ToString.Exclude
+    private Set<Role> roleSet ;
 
 }
