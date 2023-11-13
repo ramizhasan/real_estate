@@ -10,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "adverts")
@@ -54,6 +55,17 @@ public class Advert {
     private int view_count;
 
     private String location; //Google embed code
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_at"/*, nullable = false*/)
+    private LocalDateTime createAt;
+
+    @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "update_at")
+    private LocalDateTime updateAt;
+
+//------------------RELATIONS ----------------------------------
 // Relation with Parent AdvertTpe
     @ManyToOne
     @JoinColumn(name = "advert_type_id", nullable = false)
@@ -70,28 +82,27 @@ public class Advert {
     @ManyToOne
     @JoinColumn(name = "district_id", nullable = false)
     private District district;
-// Relation with Parent User //TODO: burada kaldin iliskiyi tamamla
+// Relation with Parent User
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+//Relation With Parent Category
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-//    @ManyToOne
-//    @JoinColumn(name = "category_id", nullable = false)
-//    private Category category;
+// Relation with Child 'category_property-values'
+    @OneToMany(mappedBy = "advert")
+    private Set<CategoryPropertyValue> categoryPropertyValueSet; //TODO: document da yer almamis
+// Relation with Child TourRequest
+    @OneToMany(mappedBy = "advert")
+    private Set<TourRequest> tourRequestSet;
 
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "create_at"/*, nullable = false*/)
-    private LocalDateTime createAt;
-
-    @LastModifiedDate
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "update_at")
-    private LocalDateTime updateAt;
-
-
-
-//relations
-    //private Integer advert_type_id; //
+// Relations with Child "images" table
+    @OneToMany(mappedBy = "advert")
+    private Set<Image> imageSet;
+//Relation with Child Log table
+    @OneToMany(mappedBy = "advert", targetEntity = Log.class)
+    private Set<Log> logSet;
 
 }

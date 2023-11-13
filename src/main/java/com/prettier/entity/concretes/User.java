@@ -50,7 +50,7 @@ public class User {
 
     private boolean built_in;
 
-   // @Column(name = "create_at", nullable = false)
+    @Column(name = "create_at", nullable = false)
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createAt;
@@ -59,14 +59,30 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "update_at")
     private LocalDateTime updateAt;
-
+// -----------RELATIONS -------------------------------------------------
+//Relations with Sibling "roles" Table
+    @ToString.Exclude
     @ManyToMany//TODO: Bu baglanti boylemi kurulmali tekrar dusun,
     @JoinTable(
             name = "user_roles"
             ,joinColumns = @JoinColumn(name = "user_id")
             ,inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    @ToString.Exclude
     private Set<Role> roleSet ;
+
+//Relation with Child Advert
+    @OneToMany(mappedBy = "user",targetEntity = Advert.class, fetch = FetchType.EAGER)
+    private Set<Advert> advertSet;
+
+// Relation with Child "tour_requests"  ownerUser
+    @OneToMany(mappedBy = "ownerUser", fetch = FetchType.EAGER)
+    private Set<TourRequest> tourRequestSetForOwner;
+// Relation with Child "tour_requests"  ownerUser
+    @OneToMany(mappedBy = "guestUser", fetch = FetchType.EAGER)
+    private Set<TourRequest> tourRequestSetForGuest;
+// Relation with Child logs Table
+    @OneToMany(mappedBy = "user", targetEntity = Log.class, fetch = FetchType.EAGER)
+    private Set<Log> logSet;
+
 
 }
