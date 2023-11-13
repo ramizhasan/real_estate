@@ -1,7 +1,7 @@
 package com.prettier.entity.enums;
 
 import lombok.Getter;
-
+@Getter
 public enum LogAction {
     CREATED("Advert is created and wait for approve"),
     UPDATED("Advert isupdated"),

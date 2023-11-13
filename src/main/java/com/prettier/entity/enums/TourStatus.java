@@ -3,6 +3,7 @@ package com.prettier.entity.enums;
 
 import lombok.Getter;
 
+@Getter
 public enum TourStatus {
     PENDING (0, "Initial value")
     , APPROVED (1, "Can be approved by owner of property")
