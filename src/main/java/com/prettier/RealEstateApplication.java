@@ -86,11 +86,7 @@ public class RealEstateApplication implements CommandLineRunner {
         userRepository.save(mert);
 
 
-        for (Iterator<User> it = findUserSetById(2L); it.hasNext(); ) {
-            User u = it.next();
-            System.out.println(u.toString());
-
-        }
+    print();
 
     }
 
@@ -100,6 +96,14 @@ public class RealEstateApplication implements CommandLineRunner {
         Role role = roleRepository.findById(id).orElseThrow();
         Set<User> userSet = role.getUserSet();
         return userSet.iterator();
+    }
+    @Transactional
+    public void print() {
+
+        for (Iterator<User> it = findUserSetById(2L); it.hasNext(); ) {
+            User u = it.next();
+            System.out.println(u.toString());
+        }
     }
 }
 
