@@ -26,7 +26,7 @@ public class Advert {
     private Long id;
 
     private String deneme;
-
+// added from ramiz remote to master
     @Column(nullable = false)
     @Size(min = 5, max = 150)
     private String title;
