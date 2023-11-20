@@ -2,13 +2,15 @@ package com.prettier.entity.concretes;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "category_property_value")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryPropertyValue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +28,7 @@ public class CategoryPropertyValue {
     private CategoryPropertyKey categoryPropertyKey;
 
 // Relation with Parent Adverts table
-    @ManyToOne //TODO: do opposite
+    @ManyToOne
     @JoinColumn(name = "advert_id")
     private Advert advert;
 

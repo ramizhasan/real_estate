@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -40,27 +41,28 @@ public class Advert {
     @Column(nullable = false)
     private Double price;
 
-
-
+   // @Enumerated(EnumType.STRING)
     @NotNull  //TODO: Enum olarakmi kalmali dinamik olma ile bir alakasi varmi? tablomu olmali?
     private Status status = Status.PENDING;
 
-    @Column(nullable = false, name = "built_in")
+    @Column(name = "built_in", nullable = false )
     private boolean builtIn;  // default 0 , 1 can be deleted, or updated
 
-    @Column(nullable = false, name = "is_active")
+    @Column( name = "is_active", nullable = false)//TODO: Abstract class ta toplanabilir
     private boolean isActive  = true; //default true, false: Not published true: published (for users)
 
-    @Column(nullable = false)
-    private int view_count;
+    @Column(name = "view_count", nullable = false)
+    private int viewCount;
 
     private String location; //Google embed code
+
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_at"/*, nullable = false*/)
     private LocalDateTime createAt;
 
     @LastModifiedDate
+//    @LastModifiedBy  TODO: Kullanimi arastirilacak , loglama yapilabiliyor ise projeye eklenebilir.
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "update_at")
     private LocalDateTime updateAt;
