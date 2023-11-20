@@ -24,9 +24,10 @@ public class Category {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title", nullable = false)//TODO: Konut, Isyeri, villa denmis ,
     @Size(max = 150)
     private String title;//Ex: Konut, İş yeri, Villa vs.
+
     @Column(name = "icon", nullable = false)
     @Size(max = 50)
     private String icon;

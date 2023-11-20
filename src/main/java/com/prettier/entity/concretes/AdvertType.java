@@ -2,10 +2,7 @@ package com.prettier.entity.concretes;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -15,6 +12,7 @@ import java.util.Set;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class AdvertType {
 
     @Id
@@ -28,5 +26,13 @@ public class AdvertType {
 // Relation with Child Advert
     @OneToMany(mappedBy = "advertType")
     private Set<Advert> advertSet;
-
+/**
+ *  KONUT
+ *  IS YERI
+ *  ARSA
+ *  KONUT PROJELERI
+ *  BINA
+ *  DEVRE MULK
+ *  TURISTIK TESIS
+ */
 }
